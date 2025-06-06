@@ -74,9 +74,13 @@ while True:
                 print(f"{i + 1}. {task}")
 
     elif choice == "2":
-        desc = input("Enter task description: ")
-        tasks.append(Task(desc))
-        print("Task added!")
+        desc = input("Enter task description: ").strip()
+        # Ensure blank descriptions are not added as tasks
+        if not desc:
+            print("Task description cannot be empty.")
+        else:
+            tasks.append(Task(desc))
+            print("Task added!")
 
     elif choice == "3":
         if not tasks:
